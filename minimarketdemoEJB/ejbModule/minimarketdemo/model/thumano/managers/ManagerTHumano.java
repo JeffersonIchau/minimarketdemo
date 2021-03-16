@@ -85,6 +85,20 @@ public class ManagerTHumano {
 	public List<ThmRolCabecera> findAllThmRolCabecera() {
 		return mDAO.findAll(ThmRolCabecera.class);
 	}
+	
+	public String generarRolPagosExterno() {
+		LoginDTO loginDTO=new LoginDTO();
+		loginDTO.setCorreo("gerente@minimarketdemo.com");
+		loginDTO.setDireccionIP("143.255.250.17");
+		loginDTO.setIdSegUsuario(3);
+		try {
+			generarRolPagos(loginDTO, "202103");
+			return "{\"mensaje\":\"400 - Generacion ok\"}";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "{\"mensaje\":\"200 -"+e.getMessage()+" \"}";
+		}
+	}
 
 	public void generarRolPagos(final LoginDTO loginDTO,String periodoRol) throws Exception {
 		// Iteramos la lista de empleados:
