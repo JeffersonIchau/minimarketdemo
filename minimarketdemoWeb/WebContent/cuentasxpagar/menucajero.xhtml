@@ -13,11 +13,13 @@
 	<h:form>
 		<p:menubar>
 			<p:menuitem value="Regresar" icon="pi pi-home" action="/menu" />
-			<p:menuitem value="Gestionar Documentos de Pago a Proveedores" icon="pi pi-book"
+			<p:menuitem value="Listado Proveedores" icon="pi pi-book"
+				action="#{beanCxpProveedor.actionMenuProveedores()}" />
+				<p:menuitem value="Documentos de Pago" icon="pi pi-book"
 				action="#{beanAudBitacora.actionCargarMenuBitacora()}" />
-				<p:menuitem value="Ver Reportes Estado de Cuenta de Proveedores" icon="pi pi-book"
+				<p:menuitem value="Estados de Cuenta" icon="pi pi-book"
 				action="#{beanAudBitacora.actionCargarMenuBitacora()}" />
-				<p:menuitem value="Ver Reportes de Pago a Proveedores" icon="pi pi-book"
+				<p:menuitem value="Pagos" icon="pi pi-book"
 				action="#{beanAudBitacora.actionCargarMenuBitacora()}" />
 			<f:facet name="options">
 				<p:menuButton value="#{beanSegLogin.loginDTO.correo}"
