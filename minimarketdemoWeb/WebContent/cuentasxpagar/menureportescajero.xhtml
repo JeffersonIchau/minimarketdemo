@@ -12,15 +12,11 @@
 <body>
 	<h:form>
 		<p:menubar>
-			<p:menuitem value="Regresar" icon="pi pi-home" action="/menu" />
-			<p:menuitem value="Prueba Proveedores" icon="pi pi-book"
-				action="#{beanCxpProveedor.actionMenuProveedores()}" />
-				<p:menuitem value="Pago Proveedores" icon="pi pi-book"
-				action="#{beanAudBitacora.actionCargarMenuBitacora()}" />
-				<p:menuitem value="Estados de Cuenta" icon="pi pi-book"
-				action="#{beanAudBitacora.actionCargarMenuBitacora()}" />
-				<p:menuitem value="Reportes" icon="pi pi-book"
-				action="#{beanAdmin.actionMenuReportesCajero()}" />
+			<p:menuitem value="Regresar" icon="pi pi-home" action="menuadmin" />
+			<p:menuitem value="Proveedores" icon="pi pi-book"
+				action="#{beanAdmin.actionMenuReporteProveedoresCajero()}" />
+			<p:menuitem value="Pagos a Proveedores" icon="pi pi-book"
+				action="#{beanAdmin.actionMenuReportePagosProvCajero()}" />
 			<f:facet name="options">
 				<p:menuButton value="#{beanSegLogin.loginDTO.correo}"
 					icon="pi pi-user">
@@ -30,7 +26,7 @@
 				</p:menuButton>
 			</f:facet>
 		</p:menubar>
-		<p:staticMessage severity="info" summary="Bienvenido Cajero" ></p:staticMessage>
+		<p:staticMessage severity="info" summary="Módulo de Cuentas por Pagar"></p:staticMessage>
 	</h:form>
 	<div></div>
 </body>

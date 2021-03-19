@@ -3,17 +3,16 @@ package minimarketdemo.model.core.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.List;
 
 
 /**
- * The persistent class for the cuenta_bancaria database table.
+ * The persistent class for the cxp_cuenta_bancaria database table.
  * 
  */
 @Entity
-@Table(name="cuenta_bancaria")
-@NamedQuery(name="CuentaBancaria.findAll", query="SELECT c FROM CuentaBancaria c")
-public class CuentaBancaria implements Serializable {
+@Table(name="cxp_cuenta_bancaria")
+@NamedQuery(name="CxpCuentaBancaria.findAll", query="SELECT c FROM CxpCuentaBancaria c")
+public class CxpCuentaBancaria implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -27,26 +26,22 @@ public class CuentaBancaria implements Serializable {
 	@Column(name="descripcion_cta", nullable=false, length=100)
 	private String descripcionCta;
 
-	@Column(name="entidad_cta", nullable=false, length=50)
+	@Column(name="entidad_cta", nullable=false, length=100)
 	private String entidadCta;
 
-	@Column(name="estado_cta", nullable=false, length=50)
-	private String estadoCta;
+	@Column(name="estado_cta", nullable=false)
+	private Boolean estadoCta;
 
-	@Column(name="nombre_cta", nullable=false, length=50)
+	@Column(name="nombre_cta", nullable=false, length=100)
 	private String nombreCta;
 
 	@Column(name="saldo_cta", nullable=false, precision=10, scale=2)
 	private BigDecimal saldoCta;
 
-	@Column(name="tipo_cta", nullable=false, length=50)
+	@Column(name="tipo_cta", nullable=false, length=10)
 	private String tipoCta;
 
-	//bi-directional many-to-one association to CabeceraPago
-	@OneToMany(mappedBy="cuentaBancaria")
-	private List<CabeceraPago> cabeceraPagos;
-
-	public CuentaBancaria() {
+	public CxpCuentaBancaria() {
 	}
 
 	public Integer getIdCta() {
@@ -81,11 +76,11 @@ public class CuentaBancaria implements Serializable {
 		this.entidadCta = entidadCta;
 	}
 
-	public String getEstadoCta() {
+	public Boolean getEstadoCta() {
 		return this.estadoCta;
 	}
 
-	public void setEstadoCta(String estadoCta) {
+	public void setEstadoCta(Boolean estadoCta) {
 		this.estadoCta = estadoCta;
 	}
 
@@ -111,28 +106,6 @@ public class CuentaBancaria implements Serializable {
 
 	public void setTipoCta(String tipoCta) {
 		this.tipoCta = tipoCta;
-	}
-
-	public List<CabeceraPago> getCabeceraPagos() {
-		return this.cabeceraPagos;
-	}
-
-	public void setCabeceraPagos(List<CabeceraPago> cabeceraPagos) {
-		this.cabeceraPagos = cabeceraPagos;
-	}
-
-	public CabeceraPago addCabeceraPago(CabeceraPago cabeceraPago) {
-		getCabeceraPagos().add(cabeceraPago);
-		cabeceraPago.setCuentaBancaria(this);
-
-		return cabeceraPago;
-	}
-
-	public CabeceraPago removeCabeceraPago(CabeceraPago cabeceraPago) {
-		getCabeceraPagos().remove(cabeceraPago);
-		cabeceraPago.setCuentaBancaria(null);
-
-		return cabeceraPago;
 	}
 
 }

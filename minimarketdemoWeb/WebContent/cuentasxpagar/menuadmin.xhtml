@@ -13,14 +13,14 @@
 	<h:form>
 		<p:menubar>
 			<p:menuitem value="Regresar" icon="pi pi-home" action="/menu" />
-			<p:menuitem value="Usuarios" icon="pi pi-book"
+			<p:menuitem value="Gestion Usuarios" icon="pi pi-book"
 				action="#{beanAdmin.actionMenuUsuarios()}" />
-				<p:menuitem value="Tipos de Pago" icon="pi pi-book"
+				<p:menuitem value="Gestion Tipos de Pago" icon="pi pi-book"
 				action="#{beanAudBitacora.actionCargarMenuBitacora()}" />
-				<p:menuitem value="Cuentas Bancarias" icon="pi pi-book"
+				<p:menuitem value="Gestion Cuentas Bancarias" icon="pi pi-book"
 				action="#{beanCuentaBancaria.actionMenuCuentaBancaria()}" />
-				<p:menuitem value="Reportes" icon="pi pi-book"
-				action="#{beanAudBitacora.actionCargarMenuBitacora()}" />
+				<p:menuitem value="Ver Reportes" icon="pi pi-book"
+				action="#{beanAdmin.actionMenuReportes()}" />
 			<f:facet name="options">
 				<p:menuButton value="#{beanSegLogin.loginDTO.correo}"
 					icon="pi pi-user">

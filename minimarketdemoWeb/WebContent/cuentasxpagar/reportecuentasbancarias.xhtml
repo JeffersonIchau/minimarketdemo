@@ -9,7 +9,7 @@
 		type="preRenderView"></f:event>
 </f:metadata>
 <h:head>
-	<title>Gestion de Cuentas Bancarias</title>
+	<title>Reporte Cuentas Bancarias</title>
 </h:head>
 <body>
 	<p:growl>
@@ -17,9 +17,7 @@
 	</p:growl>
 	<h:form>
 		<p:menubar>
-			<p:menuitem value="Regresar" icon="pi pi-home" action="menuadmin" />
-			<p:menuitem value="Nueva cuenta" icon="pi pi-user-plus"
-				action="#{beanCuentaBancaria.actionMenuNuevaCuentaBancaria()}" />
+			<p:menuitem value="Regresar" icon="pi pi-home" action="menureportesadmin" />
 			<f:facet name="options">
 				<p:menuButton value="#{beanSegLogin.loginDTO.correo}"
 					icon="pi pi-user">
@@ -37,8 +35,8 @@
 				<p:column headerText="ID">
 					<h:outputText value="#{cuenta.idCta}" />
 				</p:column>
-				<p:column headerText="CODIGO" filterBy="#{cuenta.idCta}">
-					<h:outputText value="#{cuenta.codigoCta}#{cuenta.idCta}" />
+				<p:column headerText="CODIGO" filterBy="#{cuenta.codigoCta}">
+					<h:outputText value="#{cuenta.codigoCta}" />
 				</p:column>
 				<p:column headerText="ENTIDAD" filterBy="#{cuenta.entidadCta}" >
 					<h:outputText value="#{cuenta.entidadCta}" />
@@ -46,7 +44,7 @@
 				<p:column headerText="SALDO" filterBy="#{cuenta.saldoCta}">
 					<h:outputText value="#{cuenta.saldoCta}" />
 				</p:column>
-				<p:column headerText="ESTADO" >
+				<p:column headerText="ESTADO" filterBy="#{cuenta.estadoCta}">
 					<h:outputText value="#{cuenta.estadoCta}" />
 				</p:column>
 				<p:column headerText="DESCRIPCION" filterBy="#{cuenta.descripcionCta}">
@@ -57,20 +55,6 @@
 				</p:column>
 				<p:column headerText="PROPIETARIO" filterBy="#{cuenta.nombreCta}">
 					<h:outputText value="#{cuenta.nombreCta}" />
-				</p:column>
-				<p:column headerText="OPCIONES">
-					<p:commandButton icon="pi pi-check-circle"
-						title="activar/desactivar" styleClass="ui-button-warning"
-						update="@form"
-						actionListener="#{beanCuentaBancaria.ActionListenerActivarDesactivarCuenta(cuenta.idCta)}" />
-					<p:commandButton icon="pi pi-pencil" title="editar"
-						action="#{beanCuentaBancaria.actionSelecccionarEdicionCuenta(cuenta)}" />
-					<p:commandButton icon="pi pi-times-circle" title="eliminar"
-						styleClass="ui-button-danger" update="@form"
-						actionListener="#{beanCuentaBancaria.actionListenerEliminarCuenta(cuenta.idCta)}">
-						<p:confirm header="Confirmación"
-							message="Desea borrar este usuario?" icon="pi pi-info-circle" />
-					</p:commandButton>
 				</p:column>
 			</p:dataTable>
 		</h:form>

@@ -99,6 +99,58 @@ public class BeanAdmin implements Serializable {
 		}
 	}
 
+	//Metodos navegacion entre menus
+	
+	//Navegacion al menu de reportes de administrador desde el menu 
+	//principal de admin
+	
+	public String actionMenuReportes() {
+		return "menureportesadmin";
+	}
+	
+	//Navegacion a la ventana de reporte de usuarios desde el menu
+	//de reportes de administrador
+	public String actionMenuReporteUsuarios() {
+		listaUsuarios = managerCxP.findAllUsuarios();
+		return "reporteusuarios";
+	}
+	
+	//Navegacion a la ventana de reporte de proveedores desde el menu
+	//de reportes de administrador
+	public String actionMenuReporteProveedores() {
+		return "reporteproveedores";
+	}
+	
+	//Navegacion a la ventana de reporte de cuentas bancarias desde el menu
+	//de reportes de administrador
+	public String actionMenuReporteCuentasB() {
+		return "reportecuentasbancarias";
+	}
+	
+	//Navegacion a la ventana de reporte de pagos de proveedores desde el
+	//menu de reportes de administrador
+	public String actionMenuReportePagosPro() {
+		return "reportepagosproveedores";
+	}
+	
+	//Navegacion a la ventana de reporte de pagos de proveedores desde el
+	//menu de reportes de cajero
+	public String actionMenuReportePagosProvCajero() {
+		return "reportepagosproveedorescajero";
+	}
+	
+	//Navegacion a la ventana de reporte de proveedores desde el menu
+	//de reportes de cajero
+	public String actionMenuReporteProveedoresCajero() {
+		return "reporteproveedorescajero";
+	}
+	
+	//Navegacion a la ventana de reportes de cajero desde el menu 
+	//principal de cajero
+	public String actionMenuReportesCajero() {
+		return "menureportescajero";
+	}
+	
 	public List<SegUsuario> getListaUsuarios() {
 		return listaUsuarios;
 	}

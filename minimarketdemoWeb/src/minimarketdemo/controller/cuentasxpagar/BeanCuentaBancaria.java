@@ -2,6 +2,7 @@ package minimarketdemo.controller.cuentasxpagar;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -9,7 +10,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 import minimarketdemo.controller.JSFUtil;
-import minimarketdemo.model.core.entities.CuentaBancaria;
+import minimarketdemo.model.core.entities.CxpCuentaBancaria;
 import minimarketdemo.model.core.entities.SegUsuario;
 import minimarketdemo.model.cuentasxpagar.managers.ManagerCuentaBancaria;
 
@@ -20,9 +21,9 @@ public class BeanCuentaBancaria implements Serializable {
 	@EJB
 	private ManagerCuentaBancaria managerCuentaBancaria;
 	
-	private List<CuentaBancaria> listaCuentasBancarias;
-	private CuentaBancaria nuevaCuentaBancaria;
-	private CuentaBancaria edicionCuentaBancaria;
+	private List<CxpCuentaBancaria> listaCuentasBancarias;
+	private CxpCuentaBancaria nuevaCuentaBancaria;
+	private CxpCuentaBancaria edicionCuentaBancaria;
 
 	public BeanCuentaBancaria() {
 		// TODO Auto-generated constructor stub
@@ -39,7 +40,11 @@ public class BeanCuentaBancaria implements Serializable {
 	}
 
 	public String actionMenuNuevaCuentaBancaria() {
-		nuevaCuentaBancaria=new CuentaBancaria();
+		
+		nuevaCuentaBancaria=new CxpCuentaBancaria();
+		//nuevaCuentaBancaria.setCodigoCta("CTA-BAN-000" + nuevaCuentaBancaria.getIdCta().toString());
+		nuevaCuentaBancaria.setCodigoCta("CTA-BAN-00" );
+		nuevaCuentaBancaria.setEstadoCta(true);
 		return "cuentas_nuevo";
 	}
 	
@@ -47,7 +52,9 @@ public class BeanCuentaBancaria implements Serializable {
 		try {
 			managerCuentaBancaria.insertarCuentaBancaria(nuevaCuentaBancaria);
 			listaCuentasBancarias=managerCuentaBancaria.findAllCuentasBancarias();
-			nuevaCuentaBancaria= new CuentaBancaria();
+			nuevaCuentaBancaria= new CxpCuentaBancaria();
+			//nuevaCuentaBancaria.setCodigoCta("CTA-BAN-000" + nuevaCuentaBancaria.getIdCta().toString());
+			nuevaCuentaBancaria.setEstadoCta(true);
 			JSFUtil.crearMensajeINFO("Cuenta insertada.");
 		}catch(Exception e) {
 			JSFUtil.crearMensajeERROR(e.getMessage());
@@ -55,7 +62,18 @@ public class BeanCuentaBancaria implements Serializable {
 		}
 	}
 	
-	public String actionSelecccionarEdicionCuenta(CuentaBancaria cuenta) {
+	public void ActionListenerActivarDesactivarCuenta(int id_cta) {
+		try {
+			managerCuentaBancaria.activarDesactivarCuenta(id_cta);
+			listaCuentasBancarias = managerCuentaBancaria.findAllCuentasBancarias();
+			JSFUtil.crearMensajeINFO("Usuarion activado/desactivado");
+		}catch(Exception e) {
+			JSFUtil.crearMensajeERROR(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public String actionSelecccionarEdicionCuenta(CxpCuentaBancaria cuenta) {
 		edicionCuentaBancaria=cuenta;
 		return "cuentas_edicion";
 	}
@@ -82,27 +100,27 @@ public class BeanCuentaBancaria implements Serializable {
 		}
 	}
 
-	public List<CuentaBancaria> getListaCuentasBancarias() {
+	public List<CxpCuentaBancaria> getListaCuentasBancarias() {
 		return listaCuentasBancarias;
 	}
 
-	public void setListaCuentasBancarias(List<CuentaBancaria> listaCuentasBancarias) {
+	public void setListaCuentasBancarias(List<CxpCuentaBancaria> listaCuentasBancarias) {
 		this.listaCuentasBancarias = listaCuentasBancarias;
 	}
 
-	public CuentaBancaria getNuevaCuentaBancaria() {
+	public CxpCuentaBancaria getNuevaCuentaBancaria() {
 		return nuevaCuentaBancaria;
 	}
 
-	public void setNuevaCuentaBancaria(CuentaBancaria nuevaCuentaBancaria) {
+	public void setNuevaCuentaBancaria(CxpCuentaBancaria nuevaCuentaBancaria) {
 		this.nuevaCuentaBancaria = nuevaCuentaBancaria;
 	}
 
-	public CuentaBancaria getEdicionCuentaBancaria() {
+	public CxpCuentaBancaria getEdicionCuentaBancaria() {
 		return edicionCuentaBancaria;
 	}
 
-	public void setEdicionCuentaBancaria(CuentaBancaria edicionCuentaBancaria) {
+	public void setEdicionCuentaBancaria(CxpCuentaBancaria edicionCuentaBancaria) {
 		this.edicionCuentaBancaria = edicionCuentaBancaria;
 	}
 	

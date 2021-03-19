@@ -10,7 +10,7 @@ import javax.inject.Named;
 
 import minimarketdemo.controller.JSFUtil;
 import minimarketdemo.model.core.entities.Proveedor;
-import minimarketdemo.model.core.entities.Proveedore;
+
 import minimarketdemo.model.cuentasxpagar.managers.ManagerProveedor;
 
 @Named

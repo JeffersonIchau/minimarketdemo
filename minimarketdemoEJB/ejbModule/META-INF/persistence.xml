@@ -3,11 +3,7 @@
 	<persistence-unit name="jfichaugDS" transaction-type="JTA">
 		<jta-data-source>java:/jfichaugDS</jta-data-source>
 		<class>minimarketdemo.model.core.entities.AudBitacora</class>
-		<class>minimarketdemo.model.core.entities.CabeceraPago</class>
-		<class>minimarketdemo.model.core.entities.CuentaBancaria</class>
-		<class>minimarketdemo.model.core.entities.DetallePago</class>
-		<class>minimarketdemo.model.core.entities.Factura</class>
-		<class>minimarketdemo.model.core.entities.Proveedore</class>
+		<class>minimarketdemo.model.core.entities.CxpCuentaBancaria</class>
 		<class>minimarketdemo.model.core.entities.SegAsignacion</class>
 		<class>minimarketdemo.model.core.entities.SegModulo</class>
 		<class>minimarketdemo.model.core.entities.SegUsuario</class>

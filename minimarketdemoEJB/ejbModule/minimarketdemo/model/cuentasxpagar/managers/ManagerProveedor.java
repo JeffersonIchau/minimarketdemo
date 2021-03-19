@@ -10,7 +10,7 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
 import minimarketdemo.model.core.entities.Proveedor;
-import minimarketdemo.model.core.entities.Proveedore;
+
 
 /**
  * Session Bean implementation class ManagerProveedor
@@ -30,7 +30,7 @@ public class ManagerProveedor {
     
     public List<Proveedor> ListaProveedor(){
     	System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-    	Client cliente = ClientBuilder.newClient().register(new Proveedore());
+    	Client cliente = ClientBuilder.newClient().register(new Proveedor());
     	List<Proveedor> proveedo = cliente
     	.target(url+"listado")
     	.request(MediaType.APPLICATION_JSON).get(new GenericType<List<Proveedor>>(){	
