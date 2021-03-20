@@ -117,9 +117,9 @@ public class BeanAdmin implements Serializable {
 	
 	//Navegacion a la ventana de reporte de proveedores desde el menu
 	//de reportes de administrador
-	public String actionMenuReporteProveedores() {
-		return "reporteproveedores";
-	}
+	//public String actionMenuReporteProveedores() {
+		//return "reporteproveedores";
+	//}
 	
 	//Navegacion a la ventana de reporte de cuentas bancarias desde el menu
 	//de reportes de administrador

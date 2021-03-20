@@ -30,22 +30,22 @@
 	</h:form>
 	<p:panel>
 		<h:form>
-			<p:dataTable value="#{beanAdmin.listaUsuarios}" var="usuario"
+			<p:dataTable value="#{beanListadoProveedor.listaProveedor}" var="proveedor"
 				paginator="true" rows="10">
 				<p:column headerText="ID PROVEEDOR">
-					<h:outputText />
+					<h:outputText value="#{proveedor.idproveedor}"/>
 				</p:column>
 				<p:column headerText="CEDULA">
-					<h:outputText />
+					<h:outputText value="#{proveedor.cedula}"/>
 				</p:column>
 				<p:column headerText="EMAIL">
-					<h:outputText />
+					<h:outputText value="#{proveedor.email}"/>
 				</p:column>
 				<p:column headerText="NOMBRE">
-					<h:outputText />
+					<h:outputText value="#{proveedor.nombre}"/>
 				</p:column>
 				<p:column headerText="TELEFONO" >
-					<h:outputText />
+					<h:outputText value="#{proveedor.telefono}"/>
 				</p:column>
 				<p:column headerText="SALDO A PAGAR" >
 					<h:outputText />
