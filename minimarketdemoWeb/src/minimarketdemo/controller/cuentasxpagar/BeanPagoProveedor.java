@@ -29,6 +29,7 @@ public class BeanPagoProveedor implements Serializable {
 	private List<FacturasaCredito> listaFacturasaCredito;
 	private List<Proveedor> listaProvedor;
 	
+	
 	public BeanPagoProveedor() {
 		// TODO Auto-generated constructor stub
 	}

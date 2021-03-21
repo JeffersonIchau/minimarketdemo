@@ -1,6 +1,7 @@
 package minimarketdemo.controller.cuentasxpagar;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -24,14 +25,18 @@ public class BeanFacturasaCredito implements Serializable {
 	@EJB
 	private ManagerFacturasaCredito managerFacturasaCredito;
 	private List<FacturasaCredito> listaFacturasaCredito;
+    private List<Integer> ListaProveedores = new ArrayList<Integer>();
+    private int idProveedor;
 	
 	public BeanFacturasaCredito() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
 	@PostConstruct
 	public void inicializar() {
 		listaFacturasaCredito= managerFacturasaCredito.findListaFacturasaCredito();
+		
 	}
 
 	//Navegacion a la ventana de reporte de proveedores desde el menu

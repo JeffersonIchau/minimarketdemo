@@ -23,46 +23,69 @@
 		</f:facet>
 	</p:menubar>
 </h:form> <h:form>
-	<p:panel>
+	<p:panel header="Datos del Cajero">
+            
+		<p:panelGrid columns="4" styleClass="top-aligned-columns" >
+		
+		 <h:outputText value="Correo del Cajero:" />
+			 <h:outputText value="#{beanSegLogin.loginDTO.correo}"/>	 
 
-		<p:panelGrid columns="6">
-			<h:outputText value="Descripcion Pagos:" />
-			<p:selectOneMenu value="#{beanListadoProveedor}">
+			 <h:outputText value="ID del Cajero:" />
+			 <h:outputText value="#{beanSegLogin.loginDTO.idSegUsuario}" />
 
-			</p:selectOneMenu>
+		</p:panelGrid>
 
-			<h:outputText value="Codigo Cuenta Bancaria:" />
-			<p:selectOneMenu value="#{beanListadoProveedor}">
-
-			</p:selectOneMenu>
-
-			<h:outputText value="Nombre del Cajero:" />
-			<p:selectOneMenu value="#{beanListadoProveedor}">
-
-			</p:selectOneMenu>
+	</p:panel>
+		<p:panel>
+            
+		<p:panelGrid columns="4" styleClass="top-aligned-columns" >
+		
+						
+	
 		</p:panelGrid>
 
 	</p:panel>
 </h:form> <h:form>
-	<p:panel>
-		<p:panelGrid columns="4">
-			<h:outputText value="Codigo Proveedor" />
-			<p:selectOneMenu value="#{beanListadoProveedor}">
+	<p:panel header="Cabecera Pago">
+		<p:panelGrid columns="4" styleClass="top-aligned-columns">
+			
+			
+						
+			<h:outputText value="Id Proveedor" />
+			<p:selectOneMenu  var="factura" value = "#{beanFacturasaCredito.listaFacturasaCredito}"> 
+                <f:selectItem   itemLabel = "Seleccione" />               
+				<f:selectItems value="#{beanFacturasaCredito.listaFacturasaCredito}"
+							var="u" itemLabel="#{u.idproveedor}"
+							itemValue="#{u.idproveedor}"></f:selectItems> 
+            </p:selectOneMenu>	
+            <h:outputText value="Codigo Factura" />
+			<p:selectOneMenu  var="factura" value = "#{beanFacturasaCredito.listaFacturasaCredito}"> 
+                <f:selectItem   itemLabel = "Seleccione" />               
+				<f:selectItems value="#{beanFacturasaCredito.listaFacturasaCredito}"
+							var="u" itemLabel="#{u.idfactura}"
+							itemValue="#{u.idfactura}"></f:selectItems> 
+            </p:selectOneMenu>			
 
-			</p:selectOneMenu>
-
-			<h:outputText value="Codigo Factura" />
-			<p:selectOneMenu value="#{beanListadoProveedor}">
-
-			</p:selectOneMenu>
-
-			<h:outputText value="Valor Factura" />
-			<p:outputLabel value="un gusto"/>
+		
 			
 
 			<h:outputText value="Valor Pagar" />
-			<p:inputText value="#{beanListadoProveedor}" />
+			<p:inputText  />
 			
+			
+			<h:outputText value="Descripcion Pago:" />			
+			<p:inputText  />			
+
+			   <h:outputText value="Codigo Cuenta Bancaria:" />
+			<p:selectOneMenu  var="cta" value = "#{beanCuentaBancaria.listaCuentasBancarias}"> 
+                <f:selectItem   itemLabel = "Seleccione" />               
+				<f:selectItems value="#{beanCuentaBancaria.listaCuentasBancarias}"
+							var="u" itemLabel="#{u.codigoCta}#{u.idCta}"
+							itemValue="#{u.idCta}"></f:selectItems> 
+            </p:selectOneMenu>	
+            
+            <h:outputText value="Fecha :" />
+            <p:clock pattern="dd-MM-yyyy"/>
 
 
 		</p:panelGrid>
