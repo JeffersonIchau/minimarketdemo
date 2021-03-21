@@ -36,7 +36,7 @@
 					<h:outputText value="#{cuenta.idCta}" />
 				</p:column>
 				<p:column headerText="CODIGO" filterBy="#{cuenta.codigoCta}">
-					<h:outputText value="#{cuenta.codigoCta}" />
+					<h:outputText value="#{cuenta.codigoCta}#{cuenta.idCta}" />
 				</p:column>
 				<p:column headerText="ENTIDAD" filterBy="#{cuenta.entidadCta}" >
 					<h:outputText value="#{cuenta.entidadCta}" />
