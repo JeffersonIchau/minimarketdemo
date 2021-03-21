@@ -30,26 +30,62 @@
 	</h:form>
 	<p:panel>
 		<h:form>
+		<h:outputText value="Descripcion Pagos:"/>
+		<p:selectOneMenu value="#{beanListadoProveedor}">
+		
+		</p:selectOneMenu>
+		
+		<h:outputText value="Codigo Cuenta Bancaria:"/>
+		<p:selectOneMenu value="#{beanListadoProveedor}">
+		
+		</p:selectOneMenu>
+		
+		<h:outputText value="Nombre del Cajero:"/>
+		<p:selectOneMenu value="#{beanListadoProveedor}">
+		
+		</p:selectOneMenu>
+		
+		
+		
+		<h:outputText value="Codigo Proveedor"/>
+		<p:selectOneMenu value="#{beanListadoProveedor}">
+		
+		</p:selectOneMenu>
+		
+		<h:outputText value="Codigo Factura"/>
+		<p:selectOneMenu value="#{beanListadoProveedor}">
+		
+		</p:selectOneMenu>
+		
+			<h:outputText value="Valor Factura"/>
+		<p:selectOneMenu value="#{beanListadoProveedor}">
+		
+		</p:selectOneMenu>
+		
+				<h:outputText value="Valor Pagar"/>
+		<p:selectOneMenu value="#{beanListadoProveedor}">
+		
+		</p:selectOneMenu>
+		
+		</h:form>
+	</p:panel>
+	<p:panel>
+		<h:form>
 			<p:dataTable value="#{beanFacturasaCredito.listaFacturasaCredito}" var="factura"
 				paginator="true" rows="10">
 				<p:column headerText="ID FACTURA">
 					<h:outputText value="#{factura.idfactura}"/>
 				</p:column>
-				<p:column headerText="ID PROVEEDOR">
+				<p:column headerText="Valor de la Factura">
 					<h:outputText value="#{factura.idproveedor}"/>
 				</p:column>
-				<p:column headerText="TIPO FACTURA">
+				<p:column headerText="Valor a Pagar">
 					<h:outputText value="#{factura.tipofactura}"/>
 				</p:column>
-				<p:column headerText="FECHA FACTURA">
+				<p:column headerText="Total">
 					<h:outputText value="#{factura.fechafactura}"/>
 				</p:column>
-				<p:column headerText="FECHA VENCIMIENTO" >
-					<h:outputText value="#{factura.fechavencimiento}"/>
-				</p:column>
-				<p:column headerText="VALOR FACTURA" >
-					<h:outputText value="#{factura.valorfactura}"/>
-				</p:column>
+				
 			</p:dataTable>
 		</h:form>
 	</p:panel>

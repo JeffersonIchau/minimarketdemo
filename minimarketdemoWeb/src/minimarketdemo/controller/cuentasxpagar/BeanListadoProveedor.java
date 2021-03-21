@@ -37,6 +37,10 @@ public class BeanListadoProveedor implements Serializable {
 		listaProveedor= managerListaProveedor.findListaProveedor();
 		return "reporteproveedores";
 	}
+	public String actionMenuReporteProveedores2() {
+		listaProveedor= managerListaProveedor.findListaProveedor();
+		return "pago_proveedores";
+	}
 	
 	
 	public List<ListaProveedor> getListaProveedor() {

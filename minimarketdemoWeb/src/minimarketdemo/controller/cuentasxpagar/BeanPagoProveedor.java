@@ -41,18 +41,17 @@ public class BeanPagoProveedor implements Serializable {
 
 	//Navegacion a la ventana de reporte de proveedores desde el menu
 		//de reportes de administrador
-	public String actionMenupago_proveedores() {
-		listaFacturasaCredito= managerFacturasaCredito.findListaFacturasaCredito();
+	public String actionMenupago_proveedores() {		
 		listaProvedor=managerProveedor.ListaProveedor();
 		return "pago_proveedores";
 	}
 
-	public List<FacturasaCredito> getListaFacturasaCredito() {
-		return listaFacturasaCredito;
+	public List<Proveedor> getListaProveedor() {
+		return listaProvedor;
 	}
 
-	public void setListaFacturasaCredito(List<FacturasaCredito> listaFacturasaCredito) {
-		this.listaFacturasaCredito = listaFacturasaCredito;
+	public void setListaProveedor(List<Proveedor> listaProveedor) {
+		this.listaProvedor = listaProveedor;
 	}
 	
 	
