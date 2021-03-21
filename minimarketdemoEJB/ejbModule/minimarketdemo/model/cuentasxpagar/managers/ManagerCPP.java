@@ -11,6 +11,7 @@ import javax.persistence.PersistenceContext;
 
 
 import minimarketdemo.model.core.entities.Apicuentasxpagar;
+import minimarketdemo.model.core.entities.Facturasapi;
 
 
 /**
@@ -33,7 +34,9 @@ public class ManagerCPP {
     public List<Apicuentasxpagar> findAllcuentasxpagar(){
     	return em.createNamedQuery("Apicuentasxpagar.findAll", Apicuentasxpagar.class).getResultList();
     }
-    
+    public List<Facturasapi> findAllfacturasapi(){
+    	return em.createNamedQuery("Facturasapi.findAll", Facturasapi.class).getResultList();
+    }    
     
     
 
