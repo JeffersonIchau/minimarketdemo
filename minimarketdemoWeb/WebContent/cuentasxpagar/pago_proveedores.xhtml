@@ -3,98 +3,93 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
-<f:metadata>
+	xmlns:p="http://primefaces.org/ui"> <f:metadata>
 	<f:event listener="#{beanSegLogin.actionVerificarLogin()}"
 		type="preRenderView"></f:event>
-</f:metadata>
-<h:head>
-	<title>Facturas a Credito  genial xd </title>
-</h:head>
-<body>
-	<p:growl>
-		<p:autoUpdate />
-	</p:growl>
+</f:metadata> <h:head>
+	<title>Facturas a Credito genial xd </title>
+</h:head> <body> <p:growl>
+	<p:autoUpdate />
+</p:growl> <h:form>
+	<p:menubar>
+		<p:menuitem value="Regresar" icon="pi pi-home" action="menucajero" />
+		<f:facet name="options">
+			<p:menuButton value="#{beanSegLogin.loginDTO.correo}"
+				icon="pi pi-user">
+				<p:menuitem value="Perfil" icon="pi pi-cog"></p:menuitem>
+				<p:menuitem value="Cerrar sesión" icon="pi pi-sign-out"
+					action="#{beanSegLogin.actionCerrarSesion()}"></p:menuitem>
+			</p:menuButton>
+		</f:facet>
+	</p:menubar>
+</h:form> <h:form>
+	<p:panel>
+
+		<p:panelGrid columns="6">
+			<h:outputText value="Descripcion Pagos:" />
+			<p:selectOneMenu value="#{beanListadoProveedor}">
+
+			</p:selectOneMenu>
+
+			<h:outputText value="Codigo Cuenta Bancaria:" />
+			<p:selectOneMenu value="#{beanListadoProveedor}">
+
+			</p:selectOneMenu>
+
+			<h:outputText value="Nombre del Cajero:" />
+			<p:selectOneMenu value="#{beanListadoProveedor}">
+
+			</p:selectOneMenu>
+		</p:panelGrid>
+
+	</p:panel>
+</h:form> <h:form>
+	<p:panel>
+		<p:panelGrid columns="4">
+			<h:outputText value="Codigo Proveedor" />
+			<p:selectOneMenu value="#{beanListadoProveedor}">
+
+			</p:selectOneMenu>
+
+			<h:outputText value="Codigo Factura" />
+			<p:selectOneMenu value="#{beanListadoProveedor}">
+
+			</p:selectOneMenu>
+
+			<h:outputText value="Valor Factura" />
+			<p:outputLabel value="un gusto"/>
+			
+
+			<h:outputText value="Valor Pagar" />
+			<p:inputText value="#{beanListadoProveedor}" />
+			
+
+
+		</p:panelGrid>
+	</p:panel>
+</h:form> <p:panel>
 	<h:form>
-		<p:menubar>
-			<p:menuitem value="Regresar" icon="pi pi-home" action="menucajero" />
-			<f:facet name="options">
-				<p:menuButton value="#{beanSegLogin.loginDTO.correo}"
-					icon="pi pi-user">
-					<p:menuitem value="Perfil" icon="pi pi-cog"></p:menuitem>
-					<p:menuitem value="Cerrar sesión" icon="pi pi-sign-out"
-						action="#{beanSegLogin.actionCerrarSesion()}"></p:menuitem>
-				</p:menuButton>
-			</f:facet>
-		</p:menubar>
+		<p:dataTable value="#{beanFacturasaCredito.listaFacturasaCredito}"
+			var="factura" paginator="true" rows="10">
+			<p:column headerText="ID FACTURA">
+				<h:outputText value="" />
+			</p:column>
+			<p:column headerText="Valor de la Factura">
+				<h:outputText value="" />
+			</p:column>
+			<p:column headerText="Valor a Pagar">
+				<h:outputText value="" />
+			</p:column>
+			<p:column headerText="Total">
+				<h:outputText value="" />
+			</p:column>
+
+		</p:dataTable>
 	</h:form>
-	<p:panel>
-		<h:form>
-		<h:outputText value="Descripcion Pagos:"/>
-		<p:selectOneMenu value="#{beanListadoProveedor}">
-		
-		</p:selectOneMenu>
-		
-		<h:outputText value="Codigo Cuenta Bancaria:"/>
-		<p:selectOneMenu value="#{beanListadoProveedor}">
-		
-		</p:selectOneMenu>
-		
-		<h:outputText value="Nombre del Cajero:"/>
-		<p:selectOneMenu value="#{beanListadoProveedor}">
-		
-		</p:selectOneMenu>
-		
-		
-		
-		<h:outputText value="Codigo Proveedor"/>
-		<p:selectOneMenu value="#{beanListadoProveedor}">
-		
-		</p:selectOneMenu>
-		
-		<h:outputText value="Codigo Factura"/>
-		<p:selectOneMenu value="#{beanListadoProveedor}">
-		
-		</p:selectOneMenu>
-		
-			<h:outputText value="Valor Factura"/>
-		<p:selectOneMenu value="#{beanListadoProveedor}">
-		
-		</p:selectOneMenu>
-		
-				<h:outputText value="Valor Pagar"/>
-		<p:selectOneMenu value="#{beanListadoProveedor}">
-		
-		</p:selectOneMenu>
-		
-		</h:form>
-	</p:panel>
-	<p:panel>
-		<h:form>
-			<p:dataTable value="#{beanFacturasaCredito.listaFacturasaCredito}" var="factura"
-				paginator="true" rows="10">
-				<p:column headerText="ID FACTURA">
-					<h:outputText value="#{factura.idfactura}"/>
-				</p:column>
-				<p:column headerText="Valor de la Factura">
-					<h:outputText value="#{factura.idproveedor}"/>
-				</p:column>
-				<p:column headerText="Valor a Pagar">
-					<h:outputText value="#{factura.tipofactura}"/>
-				</p:column>
-				<p:column headerText="Total">
-					<h:outputText value="#{factura.fechafactura}"/>
-				</p:column>
-				
-			</p:dataTable>
-		</h:form>
-	</p:panel>
-	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
-		responsive="true" width="350">
-		<p:commandButton value="No" type="button"
-			styleClass="ui-confirmdialog-no ui-button-flat" />
-		<p:commandButton value="Sí" type="button"
-			styleClass="ui-confirmdialog-yes" />
-	</p:confirmDialog>
-</body>
-</html>
+</p:panel> <p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
+	responsive="true" width="350">
+	<p:commandButton value="No" type="button"
+		styleClass="ui-confirmdialog-no ui-button-flat" />
+	<p:commandButton value="Sí" type="button"
+		styleClass="ui-confirmdialog-yes" />
+</p:confirmDialog> </body> </html>
