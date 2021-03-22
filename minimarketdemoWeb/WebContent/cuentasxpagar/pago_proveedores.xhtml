@@ -10,7 +10,8 @@
 	<title>Facturas a Credito genial xd </title>
 </h:head> <body> <p:growl>
 	<p:autoUpdate />
-</p:growl> <h:form>
+</p:growl> 
+<h:form>
 	<p:menubar>
 		<p:menuitem value="Regresar" icon="pi pi-home" action="menucajero" />
 		<f:facet name="options">
@@ -40,41 +41,36 @@
             
 		<p:panelGrid columns="4" styleClass="top-aligned-columns" >
 		
-						
-	
 		</p:panelGrid>
 
 	</p:panel>
-</h:form> <h:form>
+</h:form> 
+<h:form>
 	<p:panel header="Cabecera Pago">
-		<p:panelGrid columns="4" styleClass="top-aligned-columns">
-			
-			
-						
+		<p:panelGrid columns="6" styleClass="top-aligned-columns">			
+		
 			<h:outputText value="Id Proveedor" />
 			<p:selectOneMenu  var="factura" value = "#{beanFacturasaCredito.listaFacturasaCredito}"> 
                 <f:selectItem   itemLabel = "Seleccione" />               
 				<f:selectItems value="#{beanFacturasaCredito.listaFacturasaCredito}"
-							var="u" itemLabel="#{u.idproveedor}"
+							var="u" itemLabel="#{u.idproveedor}" process="valor"
 							itemValue="#{u.idproveedor}"></f:selectItems> 
-            </p:selectOneMenu>	
+            </p:selectOneMenu>
+ 
             <h:outputText value="Codigo Factura" />
 			<p:selectOneMenu  var="factura" value = "#{beanFacturasaCredito.listaFacturasaCredito}"> 
                 <f:selectItem   itemLabel = "Seleccione" />               
 				<f:selectItems value="#{beanFacturasaCredito.listaFacturasaCredito}"
 							var="u" itemLabel="#{u.idfactura}"
 							itemValue="#{u.idfactura}"></f:selectItems> 
-            </p:selectOneMenu>			
-
-		
+            </p:selectOneMenu>		
 			
-
-			<h:outputText value="Valor Pagar" />
-			<p:inputText  />
-			
+			<h:outputText value="Valor Pagar" />			
+                <p:spinner id="step" value="#{spinnerView.number2}" stepFactor="0.25"  prefix="$"  min="0.01"/>
+            
 			
 			<h:outputText value="Descripcion Pago:" />			
-			<p:inputText  />			
+			<p:inputTextarea></p:inputTextarea> 		
 
 			   <h:outputText value="Codigo Cuenta Bancaria:" />
 			<p:selectOneMenu  var="cta" value = "#{beanCuentaBancaria.listaCuentasBancarias}"> 
@@ -86,11 +82,16 @@
             
             <h:outputText value="Fecha :" />
             <p:clock pattern="dd-MM-yyyy"/>
-
+            
+         
+            <p:commandButton icon="pi pi-send" title="Agregar" value="Ingresar"
+							
+								></p:commandButton>
 
 		</p:panelGrid>
 	</p:panel>
-</h:form> <p:panel>
+</h:form> 
+<p:panel>
 	<h:form>
 		<p:dataTable value="#{beanFacturasaCredito.listaFacturasaCredito}"
 			var="factura" paginator="true" rows="10">

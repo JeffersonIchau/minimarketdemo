@@ -29,7 +29,7 @@ public class ManagerProveedor {
     String url ="http://modulocxp.phx.enscaled.us/modComprasWeb/apirest/proveedores/";
     
     public List<Proveedor> ListaProveedor(){
-    	System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    	System.out.println("");
     	Client cliente = ClientBuilder.newClient().register(new Proveedor());
     	List<Proveedor> proveedo = cliente
     	.target(url+"listado")
