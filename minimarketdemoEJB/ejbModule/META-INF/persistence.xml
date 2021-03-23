@@ -13,5 +13,9 @@
 		<class>minimarketdemo.model.core.entities.ThmRolDetalle</class>
 		<class>minimarketdemo.model.core.entities.Apicuentasxpagar</class>
 		<class>minimarketdemo.model.core.entities.Facturasapi</class>
+		<class>minimarketdemo.model.core.entities.CabecerapagoMcxp</class>
+		<class>minimarketdemo.model.core.entities.CuentabancariaMcxp</class>
+		<class>minimarketdemo.model.core.entities.DetallepagoMcxp</class>
+		<class>minimarketdemo.model.core.entities.FacturasapiCxp</class>
 	</persistence-unit>
 </persistence>
